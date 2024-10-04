@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<configuration
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="PdfTemplateConfig.xsd">
+	<!-- 範本路徑檔名 CLASSPATH、FILE、WEB_ROOT -->
+	<Template>
+		classpath:PdfTemplate.pdf
+	</Template>
+	<!-- 表單欄位集 -->
+	<TextFields>
+		<!-- 預設字型名稱，msjh.ttc 微軟正黑, mingliu.ttc 細明體, kaiu.ttf 標楷, simhei.ttf 黑體, 
+			simsun.ttc 微軟宋體, simfang.ttf 仿宋 -->
+		<FontName>kaiu.ttf</FontName>
+		<!-- 預設字型大小 -->
+		<FontSize>10.0</FontSize>
+		<!-- 預設字型顏色，參考 com.itextpdf.text.BaseColor，ex: RED、BLACK、BLUE...，預設BLACK，顏色可以用三位數字代表 red, green, blue -->
+		<FontColor>BLACK</FontColor>
+		<!-- 預設字型風格，參考 com.itextpdf.text.Font，ex: NORMAL、BOLD、STRIKETHRU...，預設NORMAL -->
+		<FontStyle>NORMAL</FontStyle>
+		<!-- 定義以下 id 欄位字體風格，多 id 以","分隔，未定義者使用表單預設 -->
+		<TextFiled id="text2">
+			<FontName>msjh.ttc,1</FontName>
+			<FontSize>0</FontSize>
+			<FontStyle>BOLD | ITALIC</FontStyle>
+			<FontColor>RED</FontColor>
+		</TextFiled>
+	</TextFields>
+	<!-- Barcode 類欄位集 -->
+	<BarcodeFields>
+		<!-- Barcode 欄位，屬性 name 必須 -->
+		<Barcode id="barcode1">
+			<!-- 參考 com.itextpdf.text.pdf，預設Barcode128 -->
+			<BarcodeFormat>Barcode39</BarcodeFormat>
+			<CodeType></CodeType>
+			<!-- Barcode 顏色 -->
+			<BarColor>BLACK</BarColor>
+			<!-- Barcode 高度 -->
+			<BarcodeHeight>30.0</BarcodeHeight>
+			<!-- Barcode AltText 是否顯示 -->
+			<AltText>true</AltText>
+			<!-- Barcode AltText 顏色 -->
+			<TextColor>BLUE</TextColor>
+			<!-- Barcode AltText 字型大小 -->
+			<TextFontSize>8.0</TextFontSize>
+			<!-- Barcode AltText 垂直對齊 -->
+			<TextAlignment>ALIGN_CENTER</TextAlignment>
+			<!-- 底線 -->
+			<Baseline>10</Baseline>
+			<!-- AltText 文字星號'*' -->
+			<StartStopText>true</StartStopText>
+		</Barcode>
+	</BarcodeFields>
+	<!-- Qrcode 類欄位集 -->
+	<QrcodeFields>
+		<!-- Qrcode 欄位，屬性 name 必須 -->
+		<Qrcode id="qrcode1">
+			<!-- QR_CODE、PDF_417、DATA_MATRIX -->
+			<BarcodeFormat>QR_CODE</BarcodeFormat>
+			<Height>30.0</Height>
+			<Width>30.0</Width>
+			<!-- ErrorCorrectionLevel：L = ~7%，M = ~15%，Q = ~25%，H = ~30% -->
+			<ErrorCorrectionLevel>L</ErrorCorrectionLevel>
+			<RectangleMargin>0</RectangleMargin>
+		</Qrcode>
+	</QrcodeFields>
+	<!-- 圖片類欄位集 -->
+	<ImageFields>
+		<!-- Img 欄位，屬性 name 必須 -->
+		<Image id="image1">
+			<!-- 相對左下角位置 -->
+			<PositionX>0.0</PositionX>
+			<PositionY>0.0</PositionY>
+		</Image>
+	</ImageFields>
+	<!-- 表格類欄位集 -->
+	<TableFields>
+		<!-- 表格欄位，屬性 name 必須 -->
+		<Table id="table1">
+			<FontName>msjh.ttc,1</FontName>
+			<FontSize>12.0</FontSize>
+			<FontStyle>NORMAL</FontStyle>
+			<FontColor>BLACK</FontColor>
+			<!-- 垂直對齊，參考 com.itextpdf.text.Element，ex: ALIGN_MIDDLE，ALIGN_TOP...預設ALIGN_MIDDLE -->
+			<vAlign>ALIGN_MIDDLE</vAlign>
+			<!-- 水平對齊，參考 com.itextpdf.text.Element，，ex: ALIGN_CENTER、ALIGN_RIGHT...，預設ALIGN_CENTER -->
+			<hAlign>ALIGN_CENTER</hAlign>
+			<!-- 單元格邊框，參考 com.itextpdf.text.Rectangle，ex: TOP、BOTTOM...，預設NO_BORDER -->
+			<Border>TOP | BOTTOM | LEFT | RIGHT</Border>
+			<!-- 單元格邊框寬度，預設 0.5 -->
+			<BorderWidth>1.0</BorderWidth>
+			<!-- 單元格邊框顏色，預設BLACK -->
+			<BorderColor>BLUE</BorderColor>
+			<!-- 單元格背景顏色，預設WHITE -->
+			<BroundColor>50,200,50</BroundColor>
+			<!-- 表格行欄位，屬性 name 必須 -->
+			<Column id="col1">
+				<!-- 表格行抬頭 -->
+				<ColTitle>第1列</ColTitle>
+				<!-- 表格行寬 -->
+				<ColWidths>150</ColWidths>
+				<TitleFonts>
+					<FontName>simsun.ttc,1</FontName>
+					<FontSize>12.0</FontSize>
+					<FontStyle>BOLD | ITALIC</FontStyle>
+					<FontColor>RED</FontColor>
+				</TitleFonts>
+				<TitleStyles>
+					<vAlign>ALIGN_MIDDLE</vAlign>
+					<hAlign>ALIGN_CENTER</hAlign>
+					<Border>TOP | BOTTOM | LEFT | RIGHT</Border>
+					<BorderWidth>1.0</BorderWidth>
+					<BorderColor>BLUE</BorderColor>
+					<BroundColor>50,200,50</BroundColor>
+				</TitleStyles>
+				<ColFonts>
+					<FontName>kaiu.ttf</FontName>
+					<FontSize>14</FontSize>
+					<FontStyle>NORMAL</FontStyle>
+					<FontColor>100, 30, 50</FontColor>
+				</ColFonts>
+				<ColStyles>
+					<vAlign></vAlign>
+					<hAlign></hAlign>
+					<Border>BOTTOM</Border>
+					<BorderColor></BorderColor>
+					<BorderWidth>0.5</BorderWidth>
+					<BroundColor></BroundColor>
+				</ColStyles>
+			</Column>
+
+			<Column id="col2">
+				<ColTitle>第2列</ColTitle>
+				<ColWidths>150</ColWidths>
+				<TitleFonts>
+					<FontName>msjh.ttc,1</FontName>
+					<FontSize>12</FontSize>
+					<FontStyle>BOLD | STRIKETHRU</FontStyle>
+					<FontColor>123, 64, 200</FontColor>
+				</TitleFonts>
+				<TitleStyles>
+					<vAlign></vAlign>
+					<hAlign></hAlign>
+					<Border>BOTTOM | TOP</Border>
+					<BorderWidth>2.0</BorderWidth>
+					<BorderColor></BorderColor>					
+					<BroundColor>255, 255, 255</BroundColor>
+				</TitleStyles>
+				<ColFonts>
+					<FontName></FontName>
+					<FontStyle></FontStyle>
+					<FontColor></FontColor>
+				</ColFonts>
+				<ColStyles>
+					<vAlign></vAlign>
+					<hAlign></hAlign>
+					<Border>BOTTOM</Border>
+					<BorderColor></BorderColor>
+					<BorderWidth>0.5</BorderWidth>
+					<BroundColor></BroundColor>
+				</ColStyles>
+			</Column>
+		</Table>
+	</TableFields>
+
+</configuration>
