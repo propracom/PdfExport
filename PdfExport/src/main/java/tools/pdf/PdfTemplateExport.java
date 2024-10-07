@@ -60,7 +60,6 @@ import lib.tools.util.StrUtil;
 /**
  * 利用 PDF Form 模版產生有資料值的 PDF
  * 
- * @author 
  * @since 1.9.0
  * @since 2.6.3 使用 PdfTemplateConfig
  * 
@@ -1236,8 +1235,6 @@ public class PdfTemplateExport {
     /**
      * 表格欄位定義
      * 
-     * @author 
-     *
      */
     public class TableFields {
         private String[] colNames;
@@ -1320,8 +1317,6 @@ public class PdfTemplateExport {
     /**
      * 表格單元格風格
      * 
-     * @author 
-     *
      */
     public class TableCellStyle {
         private int vAlign;
