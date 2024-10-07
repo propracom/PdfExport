@@ -37,6 +37,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/PdfExport/PdfExport/src/lib/JavaToolsLib.jar"/>
+	<classpathentry kind="lib" path="src/lib/JavaToolsLib.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
