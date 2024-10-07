@@ -13,9 +13,9 @@
 		<FontName>kaiu.ttf</FontName>
 		<!-- 預設字型大小 -->
 		<FontSize>10.0</FontSize>
-		<!-- 預設字型顏色，參考 com.itextpdf.text.BaseColor，ex: RED、BLACK、BLUE...，預設BLACK，顏色可以用三位數字代表 red, green, blue -->
+		<!-- 預設字型顏色，參考 ex: RED、BLACK、BLUE...，預設BLACK，顏色可以用三位數字代表 red, green, blue -->
 		<FontColor>BLACK</FontColor>
-		<!-- 預設字型風格，參考 com.itextpdf.text.Font，ex: NORMAL、BOLD、STRIKETHRU...，預設NORMAL -->
+		<!-- 預設字型風格，參考 ex: NORMAL、BOLD、STRIKETHRU...，預設NORMAL -->
 		<FontStyle>NORMAL</FontStyle>
 		<!-- 定義以下 id 欄位字體風格，多 id 以","分隔，未定義者使用表單預設 -->
 		<TextFiled id="text2">
@@ -29,7 +29,7 @@
 	<BarcodeFields>
 		<!-- Barcode 欄位，屬性 name 必須 -->
 		<Barcode id="barcode1">
-			<!-- 參考 com.itextpdf.text.pdf，預設Barcode128 -->
+			<!-- 參考 預設Barcode128 -->
 			<BarcodeFormat>Barcode39</BarcodeFormat>
 			<CodeType></CodeType>
 			<!-- Barcode 顏色 -->
@@ -80,11 +80,11 @@
 			<FontSize>12.0</FontSize>
 			<FontStyle>NORMAL</FontStyle>
 			<FontColor>BLACK</FontColor>
-			<!-- 垂直對齊，參考 com.itextpdf.text.Element，ex: ALIGN_MIDDLE，ALIGN_TOP...預設ALIGN_MIDDLE -->
+			<!-- 垂直對齊，參考 ex: ALIGN_MIDDLE，ALIGN_TOP...預設ALIGN_MIDDLE -->
 			<vAlign>ALIGN_MIDDLE</vAlign>
-			<!-- 水平對齊，參考 com.itextpdf.text.Element，，ex: ALIGN_CENTER、ALIGN_RIGHT...，預設ALIGN_CENTER -->
+			<!-- 水平對齊，參考 ex: ALIGN_CENTER、ALIGN_RIGHT...，預設ALIGN_CENTER -->
 			<hAlign>ALIGN_CENTER</hAlign>
-			<!-- 單元格邊框，參考 com.itextpdf.text.Rectangle，ex: TOP、BOTTOM...，預設NO_BORDER -->
+			<!-- 單元格邊框，參考 ex: TOP、BOTTOM...，預設NO_BORDER -->
 			<Border>TOP | BOTTOM | LEFT | RIGHT</Border>
 			<!-- 單元格邊框寬度，預設 0.5 -->
 			<BorderWidth>1.0</BorderWidth>

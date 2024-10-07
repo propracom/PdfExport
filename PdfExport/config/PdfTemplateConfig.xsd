@@ -26,12 +26,12 @@
               </xs:element>
               <xs:element type="xs:string" name="FontColor" maxOccurs="1" minOccurs="1">
                 <xs:annotation>
-                  <xs:documentation>預設字型顏色，參考 com.itextpdf.text.BaseColor，ex: RED、BLACK、BLUE...，預設BLACK，顏色可以用三位數字代表 red, green, blue</xs:documentation>
+                  <xs:documentation>預設字型顏色，ex: RED、BLACK、BLUE...，預設BLACK，顏色可以用三位數字代表 red, green, blue</xs:documentation>
                 </xs:annotation>
               </xs:element>
               <xs:element type="xs:string" name="FontStyle" maxOccurs="1" minOccurs="1">
                 <xs:annotation>
-                  <xs:documentation>預設字型風格，參考 com.itextpdf.text.Font，ex: NORMAL、BOLD、STRIKETHRU...，預設NORMAL</xs:documentation>
+                  <xs:documentation>預設字型風格，，ex: NORMAL、BOLD、STRIKETHRU...，預設NORMAL</xs:documentation>
                 </xs:annotation>
               </xs:element>
               <xs:element name="TextFiled" maxOccurs="unbounded" minOccurs="0">
@@ -65,7 +65,7 @@
                   <xs:sequence>
                     <xs:element type="xs:string" name="BarcodeFormat" maxOccurs="1" minOccurs="0" >
                       <xs:annotation>
-                        <xs:documentation>參考 com.itextpdf.text.pdf，預設Barcode128</xs:documentation>
+                        <xs:documentation>參考 ，預設Barcode128</xs:documentation>
                       </xs:annotation>
                     </xs:element>
                     <xs:element type="xs:string" name="CodeType" maxOccurs="1" minOccurs="0"/>
@@ -191,17 +191,17 @@
                     <xs:element type="xs:string" name="FontColor" maxOccurs="1" minOccurs="1"/>
                     <xs:element type="xs:string" name="vAlign" maxOccurs="1" minOccurs="1">
                       <xs:annotation>
-                        <xs:documentation>垂直對齊，參考 com.itextpdf.text.Element，ex: ALIGN_MIDDLE，ALIGN_TOP...預設ALIGN_MIDDLE</xs:documentation>
+                        <xs:documentation>垂直對齊，參考 ex: ALIGN_MIDDLE，ALIGN_TOP...預設ALIGN_MIDDLE</xs:documentation>
                       </xs:annotation>
                     </xs:element>
                     <xs:element type="xs:string" name="hAlign" maxOccurs="1" minOccurs="1">
                       <xs:annotation>
-                        <xs:documentation>水平對齊，參考 com.itextpdf.text.Element，，ex: ALIGN_CENTER、ALIGN_RIGHT...，預設ALIGN_CENTER</xs:documentation>
+                        <xs:documentation>水平對齊，參考 ex: ALIGN_CENTER、ALIGN_RIGHT...，預設ALIGN_CENTER</xs:documentation>
                       </xs:annotation>
                     </xs:element>
                     <xs:element type="xs:string" name="Border" maxOccurs="1" minOccurs="1">
                       <xs:annotation>
-                        <xs:documentation>單元格邊框，參考 com.itextpdf.text.Rectangle，ex: TOP、BOTTOM...，預設NO_BORDER</xs:documentation>
+                        <xs:documentation>單元格邊框，參考 ex: TOP、BOTTOM...，預設NO_BORDER</xs:documentation>
                       </xs:annotation>
                     </xs:element>
                     <xs:element type="xs:float" name="BorderWidth" maxOccurs="1" minOccurs="1">
