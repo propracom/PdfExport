@@ -32,7 +32,6 @@ import com.lowagie.text.pdf.PdfWriter;
 import lib.tools.util.ObjectUtil;
 
 public class PdfUtil {
-    // static int ENCRYPTION_AES_256 = 3;
 
     static int ENCRYPTION_AES_256 = PdfWriter.ENCRYPTION_AES_128;
 
@@ -493,7 +492,6 @@ public class PdfUtil {
      * @param fontSize 字體大小
      * @param fontStyle 字體風格, Font.BOLD 粗體/Font.ITALIC 斜體/Font.BOLDITALIC 粗斜體/....
      * @param fontColor 字體顏色
-     * @see com.itextpdf.text.Font
      * @see java.awt.Color
      * @return
      * @throws Exception
@@ -525,8 +523,6 @@ public class PdfUtil {
     /**
      * 浮水印風格
      * 
-     * @author EricLai
-     *
      */
     public class WatermarkStyle {
         private String fontName;

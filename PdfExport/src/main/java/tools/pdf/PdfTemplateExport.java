@@ -60,7 +60,7 @@ import lib.tools.util.StrUtil;
 /**
  * 利用 PDF Form 模版產生有資料值的 PDF
  * 
- * @author EricLai
+ * @author 
  * @since 1.9.0
  * @since 2.6.3 使用 PdfTemplateConfig
  * 
@@ -951,8 +951,6 @@ public class PdfTemplateExport {
      * @param fontSize 字體大小
      * @param fontStyle 字體風格, Font.BOLD 粗體/Font.ITALIC 斜體/Font.BOLDITALIC 粗斜體/....
      * @param fontColor 字體顏色
-     * @see com.itextpdf.text.Font
-     * @see com.itextpdf.text.Color
      * @return
      * @throws Exception
      */
@@ -1238,7 +1236,7 @@ public class PdfTemplateExport {
     /**
      * 表格欄位定義
      * 
-     * @author EricLai
+     * @author 
      *
      */
     public class TableFields {
@@ -1322,7 +1320,7 @@ public class PdfTemplateExport {
     /**
      * 表格單元格風格
      * 
-     * @author EricLai
+     * @author 
      *
      */
     public class TableCellStyle {
