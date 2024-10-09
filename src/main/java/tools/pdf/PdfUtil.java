@@ -11,6 +11,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
 import com.lowagie.text.Element;
@@ -29,11 +33,9 @@ import com.lowagie.text.pdf.PdfReader;
 import com.lowagie.text.pdf.PdfSmartCopy;
 import com.lowagie.text.pdf.PdfStamper;
 import com.lowagie.text.pdf.PdfWriter;
-import lib.tools.util.ObjectUtil;
 
 public class PdfUtil {
-
-    static int ENCRYPTION_AES_256 = PdfWriter.ENCRYPTION_AES_128;
+	private final static Logger logger = LoggerFactory.getLogger(PdfTemplateExport.class);
 
     /**
      * 加文字浮水印
@@ -104,13 +106,13 @@ public class PdfUtil {
         if (style.getAlign() == -1) {
             style.setAlign(Element.ALIGN_CENTER);
         }
-        if (ObjectUtil.isNull(style.getFontName())) {
+        if (style.getFontName() == null) {
             style.setFontName("simsun.ttc,1");
         }
         if (style.getFontSize() == 0) {
             style.setFontSize(64);
         }
-        if (ObjectUtil.isNull(style.getColor())) {
+        if (style.getColor() == null) {
             style.setColor(Color.RED);
         }
         if (style.getX() == 0.0F) {
@@ -354,15 +356,14 @@ public class PdfUtil {
      * @throws DocumentException
      */
     public static void doProtected(String USER_PASSWORD, String OWNER_PASSWORD, InputStream inputStream, OutputStream outputStream, int permissions, int encryptionType) throws IOException, DocumentException {
-        // ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 
         PdfReader pdfReader = new PdfReader(inputStream);
         PdfStamper pdfStamper = new PdfStamper(pdfReader, outputStream);
 
-        PdfWriter writer = pdfStamper.getWriter(); // PdfWriter.getInstance(document, outputStream);
+        PdfWriter writer = pdfStamper.getWriter(); 
 
         writer.setEncryption(USER_PASSWORD.getBytes(), OWNER_PASSWORD.getBytes(), PdfWriter.ALLOW_PRINTING,
-                PdfWriter.ENCRYPTION_AES_128); // PdfWriter.ENCRYPTION_AES_128
+                PdfWriter.ENCRYPTION_AES_128); 
 
         pdfStamper.close();
         pdfReader.close();
@@ -381,7 +382,7 @@ public class PdfUtil {
     public static void doProtected(String USER_PASSWORD, String OWNER_PASSWORD, InputStream inputStream,
             OutputStream outputStream) throws IOException, DocumentException {
         doProtected(USER_PASSWORD, OWNER_PASSWORD, inputStream, outputStream, PdfWriter.ALLOW_PRINTING,
-                ENCRYPTION_AES_256); // PdfWriter.ENCRYPTION_AES_128
+        		PdfWriter.ENCRYPTION_AES_128); 
     }
 
     /**
@@ -419,7 +420,7 @@ public class PdfUtil {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 
         doProtected(USER_PASSWORD, OWNER_PASSWORD, inputStream, outputStream, PdfWriter.ALLOW_PRINTING,
-                ENCRYPTION_AES_256); // PdfWriter.ENCRYPTION_AES_128
+        		PdfWriter.ENCRYPTION_AES_128); 
         return outputStream.toByteArray();
     }
 
@@ -438,7 +439,7 @@ public class PdfUtil {
         PdfReader reader = new PdfReader(filepath);
         int n = reader.getNumberOfPages();
         if (n < N) {
-            System.out.println("The document does not have " + N + " pages to partition !");
+        	logger.debug("The document does not have " + N + " pages to partition !");
             return;
         }
         int size = n / N;
@@ -515,7 +516,6 @@ public class PdfUtil {
     private static PdfGState getPdfGState(float Opacity) {
         PdfGState graphicState = new PdfGState();
         graphicState.setFillOpacity(Opacity);
-        // graphicState.setStrokeOpacity(1.0F);
 
         return graphicState;
     }

@@ -1,0 +1,296 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="configuration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:string" name="Template" maxOccurs="1" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>範本路徑檔名 CLASSPATH、FILE、WEB_ROOT</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="TextFields" maxOccurs="1" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>表單欄位集</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="FontName" maxOccurs="1" minOccurs="1">
+                <xs:annotation>
+                  <xs:documentation>預設字型名稱，msjh.ttc 微軟正黑, mingliu.ttc 細明體, kaiu.ttf 標楷, simhei.ttf 黑體, 
+			simsun.ttc 微軟宋體, simfang.ttf 仿宋</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element type="xs:float" name="FontSize" maxOccurs="1" minOccurs="1">
+                <xs:annotation>
+                  <xs:documentation>預設字型大小</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element type="xs:string" name="FontColor" maxOccurs="1" minOccurs="1">
+                <xs:annotation>
+                  <xs:documentation>預設字型顏色，ex: RED、BLACK、BLUE...，預設BLACK，顏色可以用三位數字代表 red, green, blue</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element type="xs:string" name="FontStyle" maxOccurs="1" minOccurs="1">
+                <xs:annotation>
+                  <xs:documentation>預設字型風格，ex: NORMAL、BOLD、STRIKETHRU...，預設NORMAL</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="TextFiled" maxOccurs="unbounded" minOccurs="0">
+                <xs:annotation>
+                  <xs:documentation>定義以下 id 欄位字體風格，多 id 以","分隔，未定義者使用表單預設</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="FontName" maxOccurs="1" minOccurs="0"/>
+                    <xs:element type="xs:float" name="FontSize" maxOccurs="1" minOccurs="0"/>
+                    <xs:element type="xs:string" name="FontStyle" maxOccurs="1" minOccurs="0"/>
+                    <xs:element type="xs:string" name="FontColor" maxOccurs="1" minOccurs="0"/>
+                  </xs:sequence>
+                  <xs:attribute type="xs:string" name="id" use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="BarcodeFields" maxOccurs="1" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Barcode 類欄位集</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Barcode" maxOccurs="unbounded" minOccurs="1">
+                <xs:annotation>
+                  <xs:documentation>Barcode 欄位，屬性 name 必須</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="BarcodeFormat" maxOccurs="1" minOccurs="0" >
+                      <xs:annotation>
+                        <xs:documentation>參考 預設Barcode128</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="xs:string" name="CodeType" maxOccurs="1" minOccurs="0"/>
+                    <xs:element type="xs:string" name="BarColor" maxOccurs="1" minOccurs="0">
+                      <xs:annotation>
+                        <xs:documentation>Barcode 顏色</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="xs:float" name="BarcodeHeight" maxOccurs="1" minOccurs="0">
+                      <xs:annotation>
+                        <xs:documentation>Barcode 高度</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="xs:string" name="AltText" maxOccurs="1" minOccurs="0">
+                      <xs:annotation>
+                        <xs:documentation>Barcode AltText 是否顯示</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="xs:string" name="TextColor" maxOccurs="1" minOccurs="0">
+                      <xs:annotation>
+                        <xs:documentation>Barcode AltText 顏色</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="xs:float" name="TextFontSize" maxOccurs="1" minOccurs="0">
+                      <xs:annotation>
+                        <xs:documentation>Barcode AltText 字型大小</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="xs:string" name="TextAlignment" maxOccurs="1" minOccurs="0">
+                      <xs:annotation>
+                        <xs:documentation>Barcode AltText 垂直對齊</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="xs:int" name="Baseline" maxOccurs="1" minOccurs="0">
+                      <xs:annotation>
+                        <xs:documentation>底線</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="xs:string" name="StartStopText" maxOccurs="1" minOccurs="0">
+                      <xs:annotation>
+                        <xs:documentation>AltText 文字星號'*'</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute type="xs:string" name="id" use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="QrcodeFields" maxOccurs="1" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>Qrcode 類欄位集</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Qrcode" maxOccurs="unbounded" minOccurs="1">
+                <xs:annotation>
+                  <xs:documentation>Qrcode 欄位，屬性 name 必須</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="BarcodeFormat" maxOccurs="1" minOccurs="0">
+                      <xs:annotation>
+                        <xs:documentation>QR_CODE、PDF_417、DATA_MATRIX</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="xs:float" name="Height" maxOccurs="1" minOccurs="0"/>
+                    <xs:element type="xs:float" name="Width" maxOccurs="1" minOccurs="0"/>
+                    <xs:element type="xs:string" name="ErrorCorrectionLevel" maxOccurs="1" minOccurs="0">
+                      <xs:annotation>
+                        <xs:documentation>ErrorCorrectionLevel：L = ~7%，M = ~15%，Q = ~25%，H = ~30%</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="xs:int" name="RectangleMargin" maxOccurs="1" minOccurs="0"/>
+                  </xs:sequence>
+                  <xs:attribute type="xs:string" name="id" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ImageFields" maxOccurs="1" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>圖片類欄位集</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Image" maxOccurs="unbounded" minOccurs="1">
+                <xs:annotation>
+                  <xs:documentation>Img 欄位，屬性 name 必須</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:float" name="PositionX" maxOccurs="1" minOccurs="0">
+                      <xs:annotation>
+                        <xs:documentation>相對左下角位置</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="xs:float" name="PositionY" maxOccurs="1" minOccurs="0"/>
+                  </xs:sequence>
+                  <xs:attribute type="xs:string" name="id" use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TableFields" maxOccurs="1" minOccurs="0">
+          <xs:annotation>
+            <xs:documentation>表格類欄位集</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Table" maxOccurs="unbounded" minOccurs="1">
+                <xs:annotation>
+                  <xs:documentation>表格欄位，屬性 name 必須</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="FontName" maxOccurs="1" minOccurs="1"/>
+                    <xs:element type="xs:float" name="FontSize" maxOccurs="1" minOccurs="1"/>
+                    <xs:element type="xs:string" name="FontStyle" maxOccurs="1" minOccurs="1"/>
+                    <xs:element type="xs:string" name="FontColor" maxOccurs="1" minOccurs="1"/>
+                    <xs:element type="xs:string" name="vAlign" maxOccurs="1" minOccurs="1">
+                      <xs:annotation>
+                        <xs:documentation>垂直對齊，ex: ALIGN_MIDDLE，ALIGN_TOP...預設ALIGN_MIDDLE</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="xs:string" name="hAlign" maxOccurs="1" minOccurs="1">
+                      <xs:annotation>
+                        <xs:documentation>水平對齊，ex: ALIGN_CENTER、ALIGN_RIGHT...，預設ALIGN_CENTER</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="xs:string" name="Border" maxOccurs="1" minOccurs="1">
+                      <xs:annotation>
+                        <xs:documentation>單元格邊框，ex: TOP、BOTTOM...，預設NO_BORDER</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="xs:float" name="BorderWidth" maxOccurs="1" minOccurs="1">
+                      <xs:annotation>
+                        <xs:documentation>單元格邊框寬度，預設 0.5</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="xs:string" name="BorderColor" maxOccurs="1" minOccurs="1">
+                      <xs:annotation>
+                        <xs:documentation>單元格邊框顏色，預設BLACK</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element type="xs:string" name="BroundColor" maxOccurs="1" minOccurs="1">
+                      <xs:annotation>
+                        <xs:documentation>單元格背景顏色，預設WHITE</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="Column" maxOccurs="unbounded" minOccurs="1">
+                      <xs:annotation>
+                        <xs:documentation>表格行欄位，屬性 name 必須</xs:documentation>
+                      </xs:annotation>
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="ColTitle" maxOccurs="1" minOccurs="0">
+                            <xs:annotation>
+                              <xs:documentation>表格行抬頭</xs:documentation>
+                            </xs:annotation>
+                          </xs:element>
+                          <xs:element type="xs:int" name="ColWidths" maxOccurs="1" minOccurs="0">
+                            <xs:annotation>
+                              <xs:documentation>表格行寬</xs:documentation>
+                            </xs:annotation>
+                          </xs:element>
+                          <xs:element name="TitleFonts" maxOccurs="1" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:string" name="FontName" maxOccurs="1" minOccurs="0"/>
+                                <xs:element type="xs:float" name="FontSize" maxOccurs="1" minOccurs="0"/>
+                                <xs:element type="xs:string" name="FontStyle" maxOccurs="1" minOccurs="0"/>
+                                <xs:element type="xs:string" name="FontColor" maxOccurs="1" minOccurs="0"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="TitleStyles" maxOccurs="1" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:string" name="vAlign" maxOccurs="1" minOccurs="0"/>
+                                <xs:element type="xs:string" name="hAlign" maxOccurs="1" minOccurs="0"/>
+                                <xs:element type="xs:string" name="Border" maxOccurs="1" minOccurs="0"/>
+                                <xs:element type="xs:float" name="BorderWidth" maxOccurs="1" minOccurs="0"/>
+                                <xs:element type="xs:string" name="BorderColor" maxOccurs="1" minOccurs="0"/>
+                                <xs:element type="xs:string" name="BroundColor" maxOccurs="1" minOccurs="0"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="ColFonts" maxOccurs="1" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:string" name="FontName" maxOccurs="1" minOccurs="0"/>
+                                <xs:element type="xs:float" name="FontSize" maxOccurs="1" minOccurs="0"/>
+                                <xs:element type="xs:string" name="FontStyle" maxOccurs="1" minOccurs="0"/>
+                                <xs:element type="xs:string" name="FontColor" maxOccurs="1" minOccurs="0"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="ColStyles" maxOccurs="1" minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:string" name="vAlign" maxOccurs="1" minOccurs="0"/>
+                                <xs:element type="xs:string" name="hAlign" maxOccurs="1" minOccurs="0"/>
+                                <xs:element type="xs:string" name="Border" maxOccurs="1" minOccurs="0"/>
+                                <xs:element type="xs:string" name="BorderColor" maxOccurs="1" minOccurs="0"/>
+                                <xs:element type="xs:float" name="BorderWidth" maxOccurs="1" minOccurs="0"/>
+                                <xs:element type="xs:string" name="BroundColor" maxOccurs="1" minOccurs="0"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                        <xs:attribute type="xs:string" name="id" use="required"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute type="xs:string" name="id" use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

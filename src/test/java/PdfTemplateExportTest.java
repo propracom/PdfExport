@@ -4,8 +4,9 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.HashMap;
 import java.util.Map;
-import lib.tools.extra.pdf.PdfTemplateConfig;
+import tools.pdf.PdfTemplateConfig;
 import tools.pdf.PdfTemplateExport;
+import tools.pdf.PdfTemplateExport.TableFields;
 
 public class PdfTemplateExportTest {
 
